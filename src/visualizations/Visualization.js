@@ -26,8 +26,8 @@ export default class Visualization  {
 
     this.vizCase = d3.select('#' + caseID);
     this.svg = this.vizCase.append('svg');
-    this.svg.call(fills[0].fill);
-    this.svg.call(fills[1].fill);
+    // this.svg.call(fills[0].fill);
+    // this.svg.call(fills[1].fill);
 
     dimensions = this.getDimensions(this.vizCase);
     this.setDimensions(this.svg, dimensions);
@@ -92,7 +92,7 @@ export default class Visualization  {
    */
   createLegend(arra, width) {
     var legend = this.svg.selectAll('.legend')
-      .data(arra.slice().reverse())
+      .data(arra)
       .enter().append('g')
       .attr('class', 'legend')
       .attr('transform', function(d, i) { return 'translate(0,' + i * 26 + ')'; });
@@ -102,7 +102,7 @@ export default class Visualization  {
       .attr('y', 20)
       .attr('width', 18)
       .attr('height', 18)
-      .style('fill', function(d){ return (d.fill.url()); });
+      .style('fill', function(d){ return (d.fill); });
 
     legend.append('text')
       .attr('x', 80)

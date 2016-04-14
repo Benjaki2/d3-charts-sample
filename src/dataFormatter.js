@@ -5,7 +5,7 @@
  * @param {obj} Filter key for data
  * @return {obj} containing two arrays
  */
-export default function formatData(data, rowFilters, fills) {
+export default function formatData(data, rowFilters) {
   rowFilters.forEach(function(obj) {
     data = data.filter(function(row) {
       return row[obj.id] == obj.value;
@@ -15,8 +15,8 @@ export default function formatData(data, rowFilters, fills) {
   let obese = data.filter(function(row) { return row['metric'] == 'obese';});
   let overWeight =  data.filter(function(row) { return row['metric'] == 'overweight';});
 
-  obese = isolateDataSections(obese, fills);
-  overWeight = isolateDataSections(overWeight, fills);
+  obese = isolateDataSections(obese);
+  overWeight = isolateDataSections(overWeight);
   return {'obesity': obese, 'overweight': overWeight};
 }
 /**
@@ -26,7 +26,7 @@ export default function formatData(data, rowFilters, fills) {
  * @param {array}
  * @return {array}
  */
-function isolateDataSections(arra, fills) {
+function isolateDataSections(arra) {
   let data = ['8', '9', '10'].map(function(id) {
     return arra.filter(function(row){
       return row['age_group_id'] == id;
@@ -42,7 +42,7 @@ function isolateDataSections(arra, fills) {
           obj.value = innerObj.mean * 100; // make it a percent %
           obj.sex = innerObj.sex;
           obj.metric = innerObj.metric;
-          obj.fill = (sexType == 1 ? fills[0].fill.url() : fills[1].fill.url());
+          obj.fill = (sexType == 1 ? '#8A89A6' : '#D0743C');
           arra.push(obj);
         }
       });

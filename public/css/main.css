@@ -6,6 +6,7 @@ header {text-align: center;}
   header h2 {
     font-size: 34px;
     color: #474747;
+    margin-bottom: 10px;
   }
   header p {
     max-width: 900px;
@@ -25,6 +26,7 @@ header {text-align: center;}
 }
 
 .chart-case { 
+  background: #FBFAF5;
   width: 80%;
   max-width: 900px;
   margin: 50px auto 10px;
