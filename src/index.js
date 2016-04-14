@@ -5,7 +5,6 @@ import formatData from './dataFormatter';
 import d3 from 'd3';
 import Evemit from 'evemit';
 import Spinner from 'spin';
-// import textures from 'textures';
 
 // keys
 const rowfilters = [{'id': 'location_id', 'value': 102}, {'id': 'year', 'value': 2013}];
@@ -19,9 +18,6 @@ const spinner = new Spinner();
 const visualization = new Visualization(groupedBarGraph, [xScalekey, xGroupArra]);
 const dom = new DOM(targetID);
 
-// textures were ditched because they were hard on the eyes
-// const femaleFill = textures.lines().orientation('3/8').size(6).strokeWidth(1).stroke('darkorange');
-// const maleFill = textures.circles().size(10).radius(2);
 const fills = [{'label':'male', 'fill': '#8A89A6'}, {'label':'female', 'fill': '#D0743C' }];
 
 
