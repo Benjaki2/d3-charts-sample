@@ -8,6 +8,7 @@ import Spinner from 'spin';
 
 // keys
 const rowfilters = [{'id': 'location_id', 'value': 102}, {'id': 'year', 'value': 2013}];
+const fills = [{'label':'male', 'fill': '#8A89A6'}, {'label':'female', 'fill': '#D0743C' }];
 const xScalekey = ['15 to 19 yrs', '20 to 24 yrs', '25 to 29 yrs'];
 const xGroupArra = ['male', 'female'];
 const targetID = 'chart-case';
@@ -18,7 +19,7 @@ const spinner = new Spinner();
 const visualization = new Visualization(groupedBarGraph, [xScalekey, xGroupArra]);
 const dom = new DOM(targetID);
 
-const fills = [{'label':'male', 'fill': '#8A89A6'}, {'label':'female', 'fill': '#D0743C' }];
+
 
 
 let data;
