@@ -1,6 +1,6 @@
 import d3 from 'd3';
 
-let barCache = {};
+let vizCache = {};
 
 export default class Visualization  {
   /**
@@ -77,7 +77,7 @@ export default class Visualization  {
    * @return {void}
    */
   resize() {
-    barCache = {};
+    vizCache = {};
 
     this.setDimensions(this.svg, this.getDimensions(this.vizCase));
     this.viz.getDimensions(this.viz.svg);
@@ -125,7 +125,7 @@ export default class Visualization  {
 
     this.dataType = key;
 
-    if(!barCache[key]) {
+    if(!vizCache[key]) {
       this.viz.chart.remove();
       this.viz.init();
       scales.y = chart.createScaleY(chart.getMax(data[key]));
@@ -135,11 +135,11 @@ export default class Visualization  {
       groups = chart.buildGroups(data[key], scales.x.main);
       this.viz.buildChartOutline(axis);
       chart.buildBars(scales, groups);
-      barCache[key] = this.chart;
+      vizCache[key] = this.chart;
     } else {
       this.viz.chart.remove();
-      this.viz.chart = barCache[key];
-      this.viz.svg.append(() => { return barCache[key].node();});
+      this.viz.chart = vizCache[key];
+      this.viz.svg.append(() => { return vizCache[key].node();});
     }
   }
 }
