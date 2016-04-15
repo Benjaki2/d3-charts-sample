@@ -25,8 +25,9 @@ export default class GroupedBarChart extends Chart {
   /**
    * create x scale for axis
    *
-   * @param {void}
-   * @return {void}
+   * @param {array} outter x domain
+   * @param {array} inner x domain
+   * @return {obj} X scale obj
    */
   createScaleX(outter, inner) {
     let x = {};
@@ -78,6 +79,7 @@ export default class GroupedBarChart extends Chart {
 
     return axis;
   }
+
   /**
    * create cases for grouped bars
    *
